@@ -1,1 +1,23 @@
 
+<script src="//api.bitrix24.com/api/v1/"></script>
+
+<script>
+BX24.init(function () {
+  BX24.callMethod(
+    'placement.bind',
+    {
+      PLACEMENT: 'CRM_DEAL_LIST_TOOLBAR',
+      HANDLER: 'https://textilegroup.github.io/wendell-links/',
+      TITLE: 'Como funciona',
+      DESCRIPTION: 'Manual do funil'
+    },
+    function(result) {
+      if (result.error()) {
+        document.body.innerHTML = 'Erro: ' + result.error();
+      } else {
+        BX24.installFinish();
+      }
+    }
+  );
+});
+</script>
