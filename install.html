@@ -2,35 +2,38 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Instalação Bitrix</title>
+<title>Diagnóstico Bitrix</title>
 <script src="https://api.bitrix24.com/api/v1/"></script>
 </head>
 <body>
-<h3>Instalando aplicativo...</h3>
-<div id="status">Aguardando Bitrix...</div>
+
+<h2>Diagnóstico Bitrix</h2>
+<pre id="out">Carregando...</pre>
 
 <script>
 BX24.init(function () {
-  document.getElementById("status").innerHTML = "Bitrix conectado. Registrando botão...";
 
-  BX24.callMethod(
-    "placement.bind",
-    {
-      PLACEMENT: "CRM_DEAL_LIST_TOOLBAR",
-      HANDLER: "https://textilegroup.github.io/wendell-links/",
-      TITLE: "Como funciona",
-      DESCRIPTION: "Manual do funil"
-    },
-    function(result) {
-      if (result.error()) {
-        document.getElementById("status").innerHTML = "Erro: " + result.error();
-      } else {
-        document.getElementById("status").innerHTML = "Botão registrado com sucesso.";
-        BX24.installFinish();
-      }
-    }
-  );
+    document.getElementById('out').innerHTML =
+        'Aplicativo conectado ao Bitrix.\n\n';
+
+    BX24.callMethod(
+        'placement.get',
+        {},
+        function(result){
+
+            if(result.error()){
+                document.getElementById('out').innerHTML +=
+                    'ERRO:\n' + result.error();
+            }else{
+                document.getElementById('out').innerHTML +=
+                    JSON.stringify(result.data(), null, 2);
+            }
+
+        }
+    );
+
 });
 </script>
+
 </body>
 </html>
