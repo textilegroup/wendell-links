@@ -5,30 +5,34 @@
 <script src="https://api.bitrix24.com/api/v1/"></script>
 </head>
 <body>
-<pre id="out">Instalando...</pre>
+
+<div id="out">Instalando...</div>
 
 <script>
 BX24.init(function () {
-  BX24.callMethod(
-    'placement.bind',
-    {
-      PLACEMENT: 'CRM_DYNAMIC_ITEM_DETAIL_TAB',
-      HANDLER: 'index.html',
-      TITLE: 'Manual do Funil',
-      DESCRIPTION: 'Manual da SPA'
-    },
-    function(result) {
-      if (result.error()) {
-        document.getElementById('out').innerHTML =
-          'Erro: ' + result.error();
-      } else {
-        document.getElementById('out').innerHTML =
-          'Placement registrado com sucesso';
-        BX24.installFinish();
-      }
-    }
-  );
+
+    BX24.callMethod(
+        'placement.bind',
+        {
+            PLACEMENT: 'CRM_DYNAMIC_ITEM_DETAIL_TAB',
+            HANDLER: 'index.html',
+            TITLE: 'Manual do Funil'
+        },
+        function(result){
+
+            if(result.error()){
+                document.getElementById('out').innerHTML =
+                    'Erro: ' + result.error();
+            }else{
+                document.getElementById('out').innerHTML =
+                    'Placement registrado com sucesso';
+            }
+
+        }
+    );
+
 });
 </script>
+
 </body>
 </html>
