@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Instalar Manual do Funil</title>
-  <script src="https://api.bitrix24.com/api/v1/"></script>
+    <meta charset="utf-8">
+    <title>Instalar Manual do Funil</title>
+    <script src="https://api.bitrix24.com/api/v1/"></script>
 </head>
 
 <body>
-  <div id="out">Instalando...</div>
 
-  <script>
-    BX24.init(function () {
+<div id="out">Instalando...</div>
 
-      BX24.callMethod(
+<script>
+
+BX24.init(function() {
+
+    BX24.callMethod(
         'placement.bind',
         {
-          PLACEMENT: 'CRM_DYNAMIC_ITEM_DETAIL_TAB',
-          HANDLER: 'https://textilegroup.github.io/wendell-links/index.html',
-          TITLE: 'Manual do Funil',
-          DESCRIPTION: 'Manual da SPA'
+            PLACEMENT: 'CRM_DYNAMIC_ITEM_DETAIL_TAB',
+            HANDLER: '/index.html',
+            TITLE: 'Manual do Funil',
+            DESCRIPTION: 'Manual da SPA'
         },
-        function (result) {
+        function(result) {
 
-          if (result.error()) {
-            document.getElementById('out').innerHTML =
-              'Erro: ' + result.error() + ': ' + result.error_description();
-          } else {
-            document.getElementById('out').innerHTML =
-              'Placement registrado com sucesso.';
-            BX24.installFinish();
-          }
+            if (result.error()) {
+
+                document.getElementById('out').innerHTML =
+                    'Erro: ' +
+                    result.error() +
+                    ' : ' +
+                    result.error_description();
+
+            } else {
+
+                document.getElementById('out').innerHTML =
+                    'Placement registrado com sucesso.';
+
+                BX24.installFinish();
+
+            }
 
         }
-      );
+    );
 
-    });
-  </script>
+});
+
+</script>
+
 </body>
 </html>
