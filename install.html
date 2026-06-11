@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<script src="https://api.bitrix24.com/api/v1/"></script>
-</head>
-<body>
-
-<pre id="out">Carregando...</pre>
-
-<script>
-
-BX24.init(function(){
-
-    let info = BX24.placement.info();
-
-    document.getElementById('out').innerHTML =
-        JSON.stringify(info, null, 2);
-
-});
-
-</script>
-
-</body>
-</html>
+BX24.callMethod(
+  'placement.bind',
+  {
+    PLACEMENT: 'CRM_DYNAMIC_ITEM_DETAIL_TAB',
+    HANDLER: 'index.html',
+    TITLE: 'Manual do Funil'
+  }
+)
