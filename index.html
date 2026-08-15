@@ -27,16 +27,16 @@
         .header-right { display: flex; align-items: center; gap: 10px; }
 
         /* LANG SWITCHER (segmentado, estilo pílula) */
-        .lang-switch { display:flex; background: rgba(255,255,255,0.16); border-radius: 999px; padding: 3px; gap:2px; }
-        .lang-btn { background: transparent; border:none; border-radius: 999px; padding: 7px 15px; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing:.3px; line-height: 1; transition: all 0.25s cubic-bezier(.4,0,.2,1); color: rgba(255,255,255,0.85); }
+        .lang-switch { display:flex; background: rgba(255,255,255,0.16); border-radius: 8px; padding: 3px; gap:2px; }
+        .lang-btn { background: transparent; border:none; border-radius: 6px; padding: 7px 15px; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing:.3px; line-height: 1; transition: all 0.25s cubic-bezier(.4,0,.2,1); color: rgba(255,255,255,0.85); }
         .lang-btn:hover { color: #fff; }
         .lang-btn.active { background: #fff; color: #5c1228; box-shadow: 0 2px 6px rgba(0,0,0,0.18); }
 
         /* RELÓGIO NO CABEÇALHO */
-        .header-clock { background:#fff; color:#5c1228; font-weight:700; font-size:13px; padding:10px 16px; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,.15); white-space:nowrap; font-variant-numeric: tabular-nums; }
+        .header-clock { background:#fff; color:#5c1228; font-weight:700; font-size:13px; padding:10px 16px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.15); white-space:nowrap; font-variant-numeric: tabular-nums; }
 
         /* BOTÃO ADM NO CABEÇALHO */
-        .btn-adm-header { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; line-height: 1; transition: all 0.25s cubic-bezier(.4,0,.2,1); color: white; display:inline-flex; align-items:center; gap:5px; }
+        .btn-adm-header { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.5); border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; line-height: 1; transition: all 0.25s cubic-bezier(.4,0,.2,1); color: white; display:inline-flex; align-items:center; gap:5px; }
         .btn-adm-header:hover { border-color: white; background: rgba(255,255,255,0.22); transform: translateY(-1px); }
 
         /* CONTAINER */
@@ -52,25 +52,28 @@
         .cat-icon { font-size: 14px; }
         .cat-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color:#555; }
 
-        /* CARD DE LINK (compacto, não colorido) */
-        .card { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #f4f4f4; transition: background 0.2s ease; }
+        /* CARD DE LINK (compacto) */
+        .card { display: flex; flex-direction: column; gap: 7px; padding: 12px 14px; border-bottom: 1px solid #f4f4f4; transition: background 0.2s ease; }
         .card:hover { background: #fafafa; }
         .cat-block .card:last-child { border-bottom: none; }
-        .card-info { flex: 1; min-width: 0; }
-        .card-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; line-height:1.25; }
-        .card-url { font-size: 11px; color: #5c1228; word-break: break-all; text-decoration: none; font-family: 'Courier New', monospace; }
-        .card-url:hover { text-decoration: underline; }
-        .card-url.construction { color: #999; font-style: italic; font-family: inherit; }
-        .card-actions { display: flex; gap: 6px; flex-shrink: 0; }
+        .card-info { min-width: 0; }
+
+        /* TÍTULO EM DESTAQUE, COR DE FUNDO NO PADRÃO WENDELL */
+        .card-name { display: inline-block; font-size: 13px; font-weight: 700; color: #fff; background: #5c1228; margin-bottom: 7px; padding: 4px 10px; border-radius: 6px; line-height:1.3; letter-spacing:.2px; }
+
+        .card-link-row { display: flex; align-items: stretch; gap: 6px; }
+
+        /* O PRÓPRIO LINK VIRA O BOTÃO DE ABRIR */
+        .card-url-btn { flex: 1; min-width: 0; display:flex; align-items:center; font-size: 11px; color: #5c1228; background: #faf2f4; border: 1px solid #f0dde1; word-break: break-all; text-decoration: none; font-family: 'Courier New', monospace; padding: 8px 11px; border-radius: 7px; transition: all 0.2s ease; }
+        .card-url-btn:hover { background: #f3e2e6; border-color: #e6c7cd; }
+        .card-url-btn:active { background: #eed7dc; }
+        .card-url-btn.construction { color: #999; font-style: italic; font-family: inherit; background:#f2f2f2; border-color:#e8e8e8; cursor:not-allowed; }
 
         /* BOTÕES DE AÇÃO */
-        .btn-open { background: linear-gradient(135deg, #7d1c35, #5c1228); color: white; border: none; padding: 7px 14px; border-radius: 999px; font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: all 0.25s cubic-bezier(.4,0,.2,1); white-space: nowrap; box-shadow: 0 1px 4px rgba(92,18,40,0.25); }
-        .btn-open:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(92,18,40,0.35); }
-        .btn-open:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(92,18,40,0.3); }
-        .btn-share { background: linear-gradient(135deg, #9c5c6a, #7d4753); color: white; border: none; padding: 7px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.25s cubic-bezier(.4,0,.2,1); white-space: nowrap; box-shadow: 0 1px 4px rgba(92,18,40,0.18); }
-        .btn-share:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(92,18,40,0.28); }
-        .btn-share:active { transform: translateY(0); }
-        .btn-disabled { background: #ececec; color: #aaa; border: none; padding: 7px 14px; border-radius: 999px; font-size: 11px; font-weight: 600; cursor: not-allowed; white-space: nowrap; }
+        .btn-share { background: #f7f3f4; color: #6b4650; border: 1px solid #ece2e4; padding: 6px 11px; border-radius: 7px; font-size: 11px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s ease; white-space: nowrap; flex-shrink:0; }
+        .btn-share:hover { background: #efe5e7; border-color: #ddc9cd; }
+        .btn-share:active { background: #e8dadd; }
+        .btn-disabled { background: #f2f2f2; color: #b3b3b3; border: 1px solid #e8e8e8; padding: 6px 12px; border-radius: 7px; font-size: 11px; font-weight: 600; cursor: not-allowed; white-space: nowrap; }
 
         /* MODAL COMPARTILHAR */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center; padding: 16px; }
@@ -168,7 +171,7 @@
         </div>
     </div>
     <div class="header-right">
-        <button class="btn-adm-header" onclick="abrirAdm(event)" title="Painel administrativo">⚙ ADM</button>
+        <button class="btn-adm-header" onclick="abrirAdm(event)" title="Painel administrativo"><span data-icon="settings"></span> ADM</button>
         <div class="lang-switch">
             <button class="lang-btn active" id="btnPT" onclick="setLang('pt')">PT</button>
             <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
@@ -182,10 +185,10 @@
 </div>
 
 <div class="pdf-bar">
-    <button class="btn-pdf" onclick="gerarPDFCompleto()" id="btnPdf">📄 Gerar PDF completo</button>
+    <button class="btn-pdf" onclick="gerarPDFCompleto()" id="btnPdf"><span data-icon="fileText"></span> <span id="btnPdfLabel">Gerar PDF completo</span></button>
 </div>
 <div class="footer">
-    <p>Wendell Global Interlining &nbsp;·&nbsp; <span id="footer-year"></span> <a href="#" class="adm-link" onclick="abrirAdm(event)">⚙ ADM</a></p>
+    <p>Wendell Global Interlining &nbsp;·&nbsp; <span id="footer-year"></span> <a href="#" class="adm-link" onclick="abrirAdm(event)"><span data-icon="settings"></span> ADM</a></p>
 </div>
 </div>
 
@@ -194,7 +197,7 @@
     <div class="modal">
         <div class="modal-header">
             <h3 id="modalTitle">Compartilhar</h3>
-            <button class="modal-close" onclick="fecharModal()">✕</button>
+            <button class="modal-close" onclick="fecharModal()"><span data-icon="x"></span></button>
         </div>
         <div class="modal-body">
             <div class="modal-preview" id="modalPreview"></div>
@@ -210,7 +213,7 @@
     <div class="modal" style="max-width:360px">
         <div class="modal-header">
             <h3>Acesso Administrativo</h3>
-            <button class="modal-close" onclick="fecharAdmLogin()">✕</button>
+            <button class="modal-close" onclick="fecharAdmLogin()"><span data-icon="x"></span></button>
         </div>
         <div class="modal-body">
             <div class="form-row">
@@ -218,7 +221,7 @@
                 <input type="password" id="admPasswordInput" placeholder="Digite a senha" style="border:1px solid #ccc;border-radius:8px;padding:9px 11px;font-size:14px;width:100%;font-family:inherit">
             </div>
             <p id="admLoginError" style="color:#5c1228;font-size:12px;margin-top:8px;display:none">Senha incorreta. Tente novamente.</p>
-            <button class="btn-primary" style="width:100%;margin-top:14px;border-radius:999px;padding:10px" onclick="confirmarSenhaAdm()">Entrar</button>
+            <button class="btn-primary" style="width:100%;margin-top:14px;border-radius:8px;padding:10px" onclick="confirmarSenhaAdm()">Entrar</button>
         </div>
     </div>
 </div>
@@ -230,12 +233,12 @@
             <h2>Painel ADM — Wendell Links</h2>
             <p>Gerencie ordem, visibilidade e cadastro dos cards (uso interno)</p>
         </div>
-        <button class="btn-back" onclick="fecharAdm()">← Voltar para os links</button>
+        <button class="btn-back" onclick="fecharAdm()"><span data-icon="chevronLeft"></span> Voltar para os links</button>
     </div>
     <div class="adm-container">
         <div class="adm-toolbar">
-            <button class="btn-secondary" onclick="restaurarPadrao()">↺ Restaurar padrão</button>
-            <button class="btn-primary" onclick="abrirFormCard()">+ Novo card</button>
+            <button class="btn-secondary" onclick="restaurarPadrao()"><span data-icon="rotateCcw"></span> Restaurar padrão</button>
+            <button class="btn-primary" onclick="abrirFormCard()"><span data-icon="plus"></span> Novo card</button>
         </div>
         <p class="adm-help">Use as setas para reordenar a exposição dos cards. O interruptor define se o card fica visível na tela pública.</p>
         <div id="admList"></div>
@@ -247,7 +250,7 @@
     <div class="adm-form">
         <div class="adm-form-header">
             <h3 id="admFormTitle">Novo card</h3>
-            <button class="modal-close" onclick="fecharFormCard()">✕</button>
+            <button class="modal-close" onclick="fecharFormCard()"><span data-icon="x"></span></button>
         </div>
         <div class="adm-form-body">
             <div class="form-row">
@@ -255,8 +258,11 @@
                 <input type="text" id="fCategory" placeholder="Ex: Formulários, Drive, Departamento Comercial...">
             </div>
             <div class="form-row">
-                <label>Ícone (emoji, opcional)</label>
-                <input type="text" id="fIcon" placeholder="Ex: 📋 💾 🔧 💼" maxlength="4">
+                <label>Ícone</label>
+                <div style="display:flex;align-items:center;gap:10px">
+                    <select id="fIcon" onchange="atualizarPreviewIcone()" style="border:1px solid #ccc;border-radius:5px;padding:7px 9px;font-size:13px;font-family:inherit;flex:1"></select>
+                    <span id="fIconPreview" style="color:#5c1228;display:flex"></span>
+                </div>
             </div>
             <div class="form-row two-col">
                 <div>
@@ -304,35 +310,35 @@ var STORAGE_KEY = 'wendellLinksData_v1';
 
 // -- DADOS PADRÃO --
 var DEFAULT_DATA = [
-    { id:'amostras', category:'Formulários', categoryEn:'Forms', icon:'📋', order:1, visible:true, construction:false,
+    { id:'amostras', category:'Formulários', categoryEn:'Forms', icon:'clipboard', order:1, visible:true, construction:false,
       name:{ pt:'Solicitação de Amostras', en:'Sample Request Form' },
       desc:{ pt:'Formulário para solicitar amostras de produtos Wendell Global Interlining.', en:'Form to request product samples from Wendell Global Interlining.' },
       url:'https://textilegroup.github.io/wendell-amostras/' },
-    { id:'pedidos', category:'Formulários', categoryEn:'Forms', icon:'📋', order:2, visible:true, construction:false,
+    { id:'pedidos', category:'Formulários', categoryEn:'Forms', icon:'clipboard', order:2, visible:true, construction:false,
       name:{ pt:'Formulário de Pedidos', en:'Order Form' },
       desc:{ pt:'Formulário para lançamento de pedidos de produtos.', en:'Form for placing product orders.' },
       url:'https://textilegroup.github.io/wendell-pedidos/' },
-    { id:'rnc', category:'Formulários', categoryEn:'Forms', icon:'📋', order:3, visible:true, construction:true,
+    { id:'rnc', category:'Formulários', categoryEn:'Forms', icon:'clipboard', order:3, visible:true, construction:true,
       name:{ pt:'Não Conformidades (RNC)', en:'Non-Conformances (RNC)' },
       desc:{ pt:'Formulário de registro de não conformidades.', en:'Non-conformance report form.' },
       url:'' },
-    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'💾', order:4, visible:true, construction:false,
+    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:4, visible:true, construction:false,
       name:{ pt:'Usuários Bitrix', en:'Bitrix Users' },
       desc:{ pt:'Pasta compartilhada no Bitrix24 para usuários internos.', en:'Shared folder on Bitrix24 for internal users.' },
       url:'https://fiorella.bitrix24.com.br/docs/path/WENDELL/' },
-    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'💾', order:5, visible:true, construction:true,
+    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:5, visible:true, construction:true,
       name:{ pt:'Usuários Externos', en:'External Users' },
       desc:{ pt:'Pasta compartilhada para usuários externos.', en:'Shared folder for external users.' },
       url:'' },
-    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'🔧', order:6, visible:true, construction:false,
+    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:6, visible:true, construction:false,
       name:{ pt:'Conversões', en:'Conversions' },
       desc:{ pt:'Ferramenta de conversão de unidades e medidas.', en:'Unit and measurement conversion tool.' },
       url:'https://b24-hwufd8.bitrix24.site/emptytemplate_zmpa/' },
-    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'🔧', order:7, visible:true, construction:false,
+    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:7, visible:true, construction:false,
       name:{ pt:'Gerador de Etiquetas', en:'Label Generator' },
       desc:{ pt:'Ferramenta para geração de etiquetas de produtos.', en:'Tool for generating product labels.' },
       url:'http://192.0.1.11:8501/' },
-    { id:'com-precos', category:'Departamento Comercial', categoryEn:'Commercial Department', icon:'💼', order:8, visible:true, construction:false,
+    { id:'com-precos', category:'Departamento Comercial', categoryEn:'Commercial Department', icon:'briefcase', order:8, visible:true, construction:false,
       name:{ pt:'Lista de Preços Wendell', en:'Wendell Price List' },
       desc:{ pt:'Tabela de preços de produtos Wendell Global Interlining.', en:'Wendell Global Interlining product price list.' },
       url:'https://textilegroup.github.io/wendell_tabela_de_precos/' }
@@ -361,6 +367,45 @@ function getById(id) {
     return null;
 }
 
+
+// -- BIBLIOTECA DE ÍCONES (SVG em linha, estilo outline, monocromático) --
+var ICONS = {
+    clipboard: '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>',
+    hardDrive: '<line x1="22" y1="12" x2="2" y2="12"></line><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path><line x1="6" y1="16" x2="6.01" y2="16"></line><line x1="10" y1="16" x2="10.01" y2="16"></line>',
+    tool: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
+    briefcase: '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
+    link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>',
+    fileText: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>',
+    settings: '<circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>',
+    star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>',
+    externalLink: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>',
+    share2: '<circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>',
+    alertTriangle: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>',
+    chevronLeft: '<polyline points="15 18 9 12 15 6"></polyline>',
+    chevronUp: '<polyline points="18 15 12 9 6 15"></polyline>',
+    chevronDown: '<polyline points="6 9 12 15 18 9"></polyline>',
+    rotateCcw: '<polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>',
+    edit2: '<path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>',
+    trash2: '<polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>',
+    x: '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>',
+    plus: '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>'
+};
+var ICON_CHOICES = [
+    { key:'clipboard', label:'Formulário' },
+    { key:'hardDrive', label:'Drive / Armazenamento' },
+    { key:'tool', label:'Ferramenta' },
+    { key:'briefcase', label:'Comercial' },
+    { key:'fileText', label:'Documento / PDF' },
+    { key:'link', label:'Link genérico' },
+    { key:'settings', label:'Configuração' },
+    { key:'star', label:'Destaque' }
+];
+function icon(name, size) {
+    var s = size || 15;
+    var body = ICONS[name] || ICONS.link;
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;flex-shrink:0">' + body + '</svg>';
+}
+
 // -- TRADUÇÕES DE INTERFACE --
 var t = {
     pt: {
@@ -380,7 +425,7 @@ function setLang(lang) {
     var tx = t[lang];
     document.getElementById('titleMain').textContent = tx.title;
     document.getElementById('titleSub').textContent  = tx.sub;
-    document.getElementById('btnPdf').textContent = '📄 ' + tx.btn_pdf;
+    document.getElementById('btnPdfLabel').textContent = tx.btn_pdf;
     document.getElementById('btnPT').classList.toggle('active', lang === 'pt');
     document.getElementById('btnEN').classList.toggle('active', lang === 'en');
     document.documentElement.lang = lang;
@@ -416,7 +461,7 @@ function renderCards() {
 
         var catLabel = currentLang === 'pt' ? catName : (items[0].categoryEn || catName);
 
-        var html = '<div class="cat-header"><span class="cat-icon">' + (items[0].icon || '🔗') + '</span>' +
+        var html = '<div class="cat-header"><span class="cat-icon">' + icon(items[0].icon || 'link', 16) + '</span>' +
                     '<span class="cat-title">' + escapeHtml(catLabel) + '</span></div>';
 
         items.forEach(function(item) {
@@ -424,16 +469,16 @@ function renderCards() {
             if (item.construction) {
                 html += '<div class="card"><div class="card-info">' +
                         '<div class="card-name">' + escapeHtml(info) + '</div>' +
-                        '<span class="card-url construction">🚧 ' + tx.construction + '</span>' +
-                        '</div><div class="card-actions"><button class="btn-disabled">' + tx.construction + '</button></div></div>';
+                        '<div class="card-link-row">' +
+                        '<span class="card-url-btn construction">' + icon('alertTriangle', 13) + ' ' + tx.construction + '</span>' +
+                        '</div></div></div>';
             } else {
                 html += '<div class="card"><div class="card-info">' +
                         '<div class="card-name">' + escapeHtml(info) + '</div>' +
-                        '<a href="' + item.url + '" target="_blank" class="card-url">' + escapeHtml(item.url) + '</a>' +
-                        '</div><div class="card-actions">' +
-                        '<a href="' + item.url + '" target="_blank" class="btn-open">↗ ' + tx.open + '</a>' +
-                        '<button class="btn-share" onclick="abrirModal(\'' + item.id + '\')">📤 ' + tx.share + '</button>' +
-                        '</div></div>';
+                        '<div class="card-link-row">' +
+                        '<a href="' + item.url + '" target="_blank" class="card-url-btn" title="' + escapeHtml(tx.open) + '">' + escapeHtml(item.url) + '</a>' +
+                        '<button class="btn-share" onclick="abrirModal(\'' + item.id + '\')">' + icon('share2', 13) + ' ' + tx.share + '</button>' +
+                        '</div></div></div>';
             }
         });
 
@@ -632,18 +677,18 @@ function renderAdmList() {
         row.className = 'adm-row' + (item.visible ? '' : ' hidden-item');
         row.innerHTML =
             '<div class="adm-move">' +
-                '<button title="Mover para cima" ' + (idx === 0 ? 'disabled' : '') + ' onclick="moverCard(\'' + item.id + '\',-1)">▲</button>' +
-                '<button title="Mover para baixo" ' + (idx === sorted.length - 1 ? 'disabled' : '') + ' onclick="moverCard(\'' + item.id + '\',1)">▼</button>' +
+                '<button title="Mover para cima" ' + (idx === 0 ? 'disabled' : '') + ' onclick="moverCard(\'' + item.id + '\',-1)">' + icon('chevronUp', 12) + '</button>' +
+                '<button title="Mover para baixo" ' + (idx === sorted.length - 1 ? 'disabled' : '') + ' onclick="moverCard(\'' + item.id + '\',1)">' + icon('chevronDown', 12) + '</button>' +
             '</div>' +
             '<div class="adm-info">' +
                 '<div class="adm-cat">' + escapeHtml(item.category) + '</div>' +
-                '<div class="adm-name">' + (item.icon || '🔗') + ' ' + escapeHtml(item.name.pt) + '</div>' +
-                '<div class="adm-url">' + (item.construction ? '🚧 Em construção' : escapeHtml(item.url)) + '</div>' +
+                '<div class="adm-name">' + icon(item.icon || 'link', 14) + ' ' + escapeHtml(item.name.pt) + '</div>' +
+                '<div class="adm-url">' + (item.construction ? (icon('alertTriangle', 12) + ' Em construção') : escapeHtml(item.url)) + '</div>' +
             '</div>' +
             '<div class="adm-actions">' +
                 '<label class="switch"><input type="checkbox" ' + (item.visible ? 'checked' : '') + ' onchange="toggleVisible(\'' + item.id + '\')"><span class="slider"></span></label>' +
-                '<button class="btn-icon" title="Editar" onclick="editarCard(\'' + item.id + '\')">✎</button>' +
-                '<button class="btn-icon danger" title="Excluir" onclick="excluirCard(\'' + item.id + '\')">🗑</button>' +
+                '<button class="btn-icon" title="Editar" onclick="editarCard(\'' + item.id + '\')">' + icon('edit2', 13) + '</button>' +
+                '<button class="btn-icon danger" title="Excluir" onclick="excluirCard(\'' + item.id + '\')">' + icon('trash2', 13) + '</button>' +
             '</div>';
         list.appendChild(row);
     });
@@ -677,11 +722,29 @@ function excluirCard(id) {
     renderAdmList();
 }
 
+function popularSelectIcones() {
+    var sel = document.getElementById('fIcon');
+    sel.innerHTML = '';
+    ICON_CHOICES.forEach(function(opt) {
+        var o = document.createElement('option');
+        o.value = opt.key;
+        o.textContent = opt.label;
+        sel.appendChild(o);
+    });
+}
+
+function atualizarPreviewIcone() {
+    var sel = document.getElementById('fIcon');
+    document.getElementById('fIconPreview').innerHTML = icon(sel.value, 18);
+}
+
 function abrirFormCard() {
     editingId = null;
     document.getElementById('admFormTitle').textContent = 'Novo card';
     document.getElementById('fCategory').value = '';
-    document.getElementById('fIcon').value = '';
+    popularSelectIcones();
+    document.getElementById('fIcon').value = 'link';
+    atualizarPreviewIcone();
     document.getElementById('fNamePt').value = '';
     document.getElementById('fNameEn').value = '';
     document.getElementById('fDescPt').value = '';
@@ -697,7 +760,9 @@ function editarCard(id) {
     editingId = id;
     document.getElementById('admFormTitle').textContent = 'Editar card';
     document.getElementById('fCategory').value = item.category || '';
-    document.getElementById('fIcon').value = item.icon || '';
+    popularSelectIcones();
+    document.getElementById('fIcon').value = item.icon || 'link';
+    atualizarPreviewIcone();
     document.getElementById('fNamePt').value = item.name.pt || '';
     document.getElementById('fNameEn').value = item.name.en || '';
     document.getElementById('fDescPt').value = item.desc.pt || '';
@@ -720,7 +785,7 @@ function salvarCard() {
     var data = {
         category: category,
         categoryEn: category,
-        icon: document.getElementById('fIcon').value.trim() || '🔗',
+        icon: document.getElementById('fIcon').value.trim() || 'link',
         name: { pt: namePt, en: document.getElementById('fNameEn').value.trim() || namePt },
         desc: { pt: document.getElementById('fDescPt').value.trim(), en: document.getElementById('fDescEn').value.trim() },
         url: document.getElementById('fUrl').value.trim(),
@@ -762,8 +827,15 @@ function atualizarRelogio() {
 }
 
 // -- INIT --
+function resolverIconesEstaticos() {
+    document.querySelectorAll('[data-icon]').forEach(function(el) {
+        el.innerHTML = icon(el.getAttribute('data-icon'), 14);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+    resolverIconesEstaticos();
     atualizarRelogio();
     setInterval(atualizarRelogio, 1000);
     loadData();
