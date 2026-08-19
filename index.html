@@ -20,8 +20,8 @@
         /* HEADER */
         .header { background: #5c1228; color: white; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
         .header-left { display: flex; align-items: center; gap: 16px; }
-        .logo { width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow:hidden; }
-        .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .logo { height: 58px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background:#fff; border-radius: 12px; padding: 6px 10px; box-shadow: 0 2px 6px rgba(0,0,0,.18); }
+        .logo img { height: 100%; width: auto; max-width: none; object-fit: contain; display: block; }
         .header-title h1 { font-size: 25px; font-weight: 700; letter-spacing: 0.2px; line-height:1.2; }
         .header-title p { font-size: 13px; opacity: 0.85; margin-top: 2px; font-weight:600; }
         .header-right { display: flex; align-items: center; gap: 10px; }
@@ -48,9 +48,10 @@
         /* BLOCO DE CATEGORIA */
         .cat-block { background: #fff; border: 1px solid #eaeaea; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.03); transition: box-shadow 0.25s ease; }
         .cat-block:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
-        .cat-header { padding: 9px 14px; border-bottom: 1px solid #f0f0f0; display:flex; align-items:center; gap:8px; background:#fafafa; }
-        .cat-icon { font-size: 14px; }
-        .cat-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color:#555; }
+        /* CABEÇALHO DA CATEGORIA — HIERARQUIA PRIMÁRIA */
+        .cat-header { padding: 13px 16px; display:flex; align-items:center; gap:10px; background:#5c1228; color:#fff; }
+        .cat-icon { display:inline-flex; align-items:center; opacity:.92; }
+        .cat-title { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color:#fff; }
 
         /* CARD DE LINK (compacto) */
         .card { display: flex; flex-direction: column; gap: 7px; padding: 12px 14px; border-bottom: 1px solid #f4f4f4; transition: background 0.2s ease; }
@@ -58,8 +59,8 @@
         .cat-block .card:last-child { border-bottom: none; }
         .card-info { min-width: 0; }
 
-        /* TÍTULO EM DESTAQUE, COR DE FUNDO NO PADRÃO WENDELL */
-        .card-name { display: inline-block; font-size: 13px; font-weight: 700; color: #fff; background: #5c1228; margin-bottom: 7px; padding: 4px 10px; border-radius: 6px; line-height:1.3; letter-spacing:.2px; }
+        /* SUBITEM — HIERARQUIA SECUNDÁRIA: APENAS NEGRITO */
+        .card-name { display: block; font-size: 13px; font-weight: 700; color: #2b2b2b; background: none; margin-bottom: 6px; padding: 0; line-height:1.35; letter-spacing:0; }
 
         .card-link-row { display: flex; align-items: stretch; gap: 6px; }
 
@@ -255,7 +256,7 @@
         <div class="adm-form-body">
             <div class="form-row">
                 <label>Categoria</label>
-                <input type="text" id="fCategory" placeholder="Ex: Formulários, Drive, Departamento Comercial...">
+                <input type="text" id="fCategory" placeholder="Ex: Formulários, Drive, Comercial...">
             </div>
             <div class="form-row">
                 <label>Ícone</label>
@@ -322,26 +323,26 @@ var DEFAULT_DATA = [
       name:{ pt:'Não Conformidades (RNC)', en:'Non-Conformances (RNC)' },
       desc:{ pt:'Formulário de registro de não conformidades.', en:'Non-conformance report form.' },
       url:'' },
-    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:4, visible:true, construction:false,
+    { id:'com-precos', category:'Comercial', categoryEn:'Commercial', icon:'briefcase', order:4, visible:true, construction:false,
+      name:{ pt:'Lista de Preços Wendell', en:'Wendell Price List' },
+      desc:{ pt:'Tabela de preços de produtos Wendell Global Interlining.', en:'Wendell Global Interlining product price list.' },
+      url:'https://textilegroup.github.io/wendell_tabela_de_precos/' },
+    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:5, visible:true, construction:false,
       name:{ pt:'Usuários Bitrix', en:'Bitrix Users' },
       desc:{ pt:'Pasta compartilhada no Bitrix24 para usuários internos.', en:'Shared folder on Bitrix24 for internal users.' },
       url:'https://fiorella.bitrix24.com.br/docs/path/WENDELL/' },
-    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:5, visible:true, construction:true,
+    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:6, visible:true, construction:true,
       name:{ pt:'Usuários Externos', en:'External Users' },
       desc:{ pt:'Pasta compartilhada para usuários externos.', en:'Shared folder for external users.' },
       url:'' },
-    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:6, visible:true, construction:false,
+    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:7, visible:true, construction:false,
       name:{ pt:'Conversões', en:'Conversions' },
       desc:{ pt:'Ferramenta de conversão de unidades e medidas.', en:'Unit and measurement conversion tool.' },
       url:'https://b24-hwufd8.bitrix24.site/emptytemplate_zmpa/' },
-    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:7, visible:true, construction:false,
+    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:8, visible:true, construction:false,
       name:{ pt:'Gerador de Etiquetas', en:'Label Generator' },
       desc:{ pt:'Ferramenta para geração de etiquetas de produtos.', en:'Tool for generating product labels.' },
-      url:'http://192.0.1.11:8501/' },
-    { id:'com-precos', category:'Departamento Comercial', categoryEn:'Commercial Department', icon:'briefcase', order:8, visible:true, construction:false,
-      name:{ pt:'Lista de Preços Wendell', en:'Wendell Price List' },
-      desc:{ pt:'Tabela de preços de produtos Wendell Global Interlining.', en:'Wendell Global Interlining product price list.' },
-      url:'https://textilegroup.github.io/wendell_tabela_de_precos/' }
+      url:'http://192.0.1.11:8501/' }
 ];
 
 var currentLang = 'pt';
@@ -349,13 +350,51 @@ var currentKey  = null;
 var editingId   = null;
 var linksData   = [];
 
+// Migração: renomeia "Departamento Comercial" -> "Comercial" e posiciona
+// o bloco Comercial logo depois de Formulários (roda uma única vez).
+var MIGRATION_KEY = 'wendellLinksMigration';
+var MIGRATION_VERSION = '2';
+
+function migrarDados() {
+    var mudou = false;
+
+    linksData.forEach(function(c) {
+        if (c.category === 'Departamento Comercial') { c.category = 'Comercial'; mudou = true; }
+        if (c.categoryEn === 'Commercial Department') { c.categoryEn = 'Commercial'; mudou = true; }
+    });
+
+    // maior "order" entre os cards de Formulários
+    var refOrder = null;
+    linksData.forEach(function(c) {
+        if (c.category === 'Formulários' && (refOrder === null || c.order > refOrder)) refOrder = c.order;
+    });
+
+    if (refOrder !== null) {
+        var i = 1;
+        linksData.forEach(function(c) {
+            if (c.category === 'Comercial') { c.order = refOrder + (i++) * 0.001; mudou = true; }
+        });
+        // renumera tudo de 1..n mantendo a nova sequência
+        linksData.slice().sort(function(a, b) { return a.order - b.order; })
+                 .forEach(function(c, idx) { c.order = idx + 1; });
+    }
+
+    if (mudou) saveData();
+    try { localStorage.setItem(MIGRATION_KEY, MIGRATION_VERSION); } catch (e) {}
+}
+
 function loadData() {
     try {
         var raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) { linksData = JSON.parse(raw); return; }
+        if (raw) {
+            linksData = JSON.parse(raw);
+            if (localStorage.getItem(MIGRATION_KEY) !== MIGRATION_VERSION) migrarDados();
+            return;
+        }
     } catch (e) {}
     linksData = JSON.parse(JSON.stringify(DEFAULT_DATA));
     saveData();
+    try { localStorage.setItem(MIGRATION_KEY, MIGRATION_VERSION); } catch (e) {}
 }
 
 function saveData() {
