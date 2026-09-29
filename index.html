@@ -90,23 +90,38 @@
         .lang-btn:hover{color:#fff}
         .lang-btn.active{background:#fff;color:var(--wine-deep)}
         .hdr-chip:focus-visible,.btn-adm-header:focus-visible,.lang-btn:focus-visible,
-        .card-url-btn:focus-visible,.btn-share:focus-visible{outline:2px solid var(--wine-soft);outline-offset:2px}
+        .card-url-btn:focus-visible,.card-title-btn:focus-visible,.btn-share:focus-visible,.btn-wa:focus-visible,.btn-copy:focus-visible{outline:2px solid var(--wine-soft);outline-offset:2px}
 
         /* ---------- shell ---------- */
         .container{max-width:1560px;margin:0 auto;padding:12px 16px 14px}
-        .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;align-items:start}
+        .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px;align-items:start}
 
         /* bloco de categoria = card do padrão (cabeçalho com filete vinho) */
         .cat-block{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
-        .cat-header{display:flex;align-items:center;gap:8px;padding:9px 14px 8px;border-bottom:2px solid var(--wine-soft)}
-        .cat-icon{display:inline-flex;align-items:center;color:var(--accent)}
+        .cat-header{display:flex;align-items:center;gap:10px;padding:8px 14px 8px;border-bottom:2px solid var(--wine-soft)}
+        /* ícone no padrão Fiorella UI: SVG de traço 1.8 dentro de quadrado com borda (fi-icon-btn) */
+        .cat-icon, .fi-ico{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--accent)}
+        .cat-icon svg, .fi-ico svg{width:16px;height:16px}
         .cat-title{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 
         /* item de link */
-        .card{display:flex;flex-direction:column;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line-2)}
+        .card{display:flex;flex-direction:column;gap:6px;padding:8px 14px;border-bottom:1px solid var(--line-2)}
         .cat-block .card:last-child{border-bottom:none}
         .card-info{min-width:0}
         .card-name{display:block;font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35}
+        .card-title-btn{
+          flex:1;min-width:0;display:flex;align-items:center;gap:8px;text-decoration:none;
+          font-size:12.5px;font-weight:600;line-height:1.3;color:var(--ink);
+          background:color-mix(in srgb,var(--wine) 5%,var(--card));
+          border:1px solid color-mix(in srgb,var(--wine) 16%,var(--line));border-radius:8px;
+          padding:8px 10px;transition:background .15s,border-color .15s;
+        }
+        .card-title-btn span{flex:1;min-width:0}
+        .card-title-btn svg{color:var(--accent);opacity:.75;flex:none;width:14px;height:14px}
+        .card-title-btn:hover{background:color-mix(in srgb,var(--wine) 10%,var(--card));border-color:var(--wine-soft)}
+        .card-title-btn.construction{background:var(--chip);border-color:var(--line);color:var(--ink-3);cursor:not-allowed}
+        .card-title-btn.construction svg{color:var(--ink-3)}
+        .tag-obra{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap;flex:none}
         .card-link-row{display:flex;align-items:stretch;gap:6px}
 
         .card-url-btn{
@@ -138,10 +153,14 @@
         .modal-close:hover{color:var(--ink)}
         .modal-body{padding:14px;overflow-y:auto}
         .modal-preview{background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:12px;font-size:12.5px;line-height:1.6;color:var(--ink-2);white-space:pre-wrap;word-break:break-all}
-        .modal-btns{display:flex;gap:10px;flex-wrap:wrap}
-        .btn-copy{width:100%;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:10px;border:0;border-radius:9px;background:var(--wine);color:#fff;cursor:pointer}
+        .modal-btns{display:flex;gap:8px}
+        .btn-copy, .btn-wa{flex:1;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:10px 12px;border-radius:9px;cursor:pointer;text-decoration:none;white-space:nowrap}
+        .btn-copy{border:1px solid var(--wine);background:var(--wine);color:#fff}
+        .btn-copy svg, .btn-wa svg{width:17px;height:17px;flex:none}
+        .btn-wa{border:1px solid var(--pos);background:var(--card);color:var(--pos)}
+        .btn-wa:hover{background:var(--pos);color:#fff}
         .btn-copy:hover{background:var(--wine-soft)}
-        .btn-copy.copied{background:var(--pos)}
+        .btn-copy.copied{background:var(--pos);border-color:var(--pos)}
         .field{width:100%;font-size:14px;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--sunk);color:var(--ink)}
         .field:focus{outline:2px solid var(--wine-soft);outline-offset:1px}
         .login-err{color:var(--neg);font-size:11.5px;font-weight:600;margin-top:8px;display:none}
@@ -219,7 +238,25 @@
         .empty-msg{color:var(--ink-3);font-size:12.5px;padding:20px}
 
         @media (max-width:640px){
-          .header-right{margin-left:0;justify-content:flex-start;width:100%}
+          .header{padding:8px 12px;gap:8px 10px;position:static}
+          .logo{height:38px;padding:3px 6px}
+          .header-title h1{font-size:16px}
+          .header-title p{font-size:10.5px}
+          .header-right{margin-left:0;justify-content:flex-start;width:100%;gap:6px}
+          .header-clock{display:none}
+          .container{padding:10px 10px 12px}
+          .card{padding:8px 12px}
+          .card-link-row{gap:5px}
+          .btn-share{padding:5px 8px}
+          .btn-share .lbl-long{display:none}
+          .modal-overlay{align-items:flex-end;padding:0}
+          .modal{max-width:none;border-radius:14px 14px 0 0;max-height:88vh}
+          .modal-btns{flex-direction:column}
+          .btn-copy, .btn-wa{padding:12px}
+          .pdf-bar{padding:0 10px}
+          .adm-container{padding:10px 10px 40px}
+          .adm-row{flex-wrap:wrap;padding:8px 12px}
+          .adm-actions{width:100%;justify-content:flex-end}
           .form-row.two-col{flex-direction:column}
         }
     </style>
@@ -274,7 +311,8 @@
         <div class="modal-body">
             <div class="modal-preview" id="modalPreview"></div>
             <div class="modal-btns">
-                <button class="btn-copy" id="btnCopy" onclick="copiarTexto()">Copiar texto para envio por WhatsApp</button>
+                <button class="btn-copy" id="btnCopy" type="button" onclick="copiarTexto()"></button>
+                <a class="btn-wa" id="btnWa" href="#" target="_blank" rel="noopener"></a>
             </div>
         </div>
     </div>
@@ -404,19 +442,27 @@ var DEFAULT_DATA = [
       name:{ pt:'Lista de Preços Wendell', en:'Wendell Price List' },
       desc:{ pt:'Tabela de preços de produtos Wendell Global Interlining.', en:'Wendell Global Interlining product price list.' },
       url:'https://textilegroup.github.io/wendell_tabela_de_precos/' },
-    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:5, visible:true, construction:false,
+    { id:'com-custos', category:'Comercial', categoryEn:'Commercial', icon:'briefcase', order:5, visible:true, construction:false,
+      name:{ pt:'Lista de Custos', en:'Cost List' },
+      desc:{ pt:'Lista de custos de produtos Wendell Global Interlining.', en:'Wendell Global Interlining product cost list.' },
+      url:'https://textilegroup.github.io/wendell-custos/' },
+    { id:'com-relatorios', category:'Comercial', categoryEn:'Commercial', icon:'briefcase', order:6, visible:true, construction:false,
+      name:{ pt:'Relatórios', en:'Reports' },
+      desc:{ pt:'Relatórios de vendas Wendell Brasil.', en:'Wendell Brasil sales reports.' },
+      url:'https://textilegroup.github.io/wendell-relatorios/' },
+    { id:'drive-bx', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:7, visible:true, construction:false,
       name:{ pt:'Usuários Bitrix', en:'Bitrix Users' },
       desc:{ pt:'Pasta compartilhada no Bitrix24 para usuários internos.', en:'Shared folder on Bitrix24 for internal users.' },
       url:'https://fiorella.bitrix24.com.br/docs/path/WENDELL/' },
-    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:6, visible:true, construction:true,
+    { id:'drive-ext', category:'Drive', categoryEn:'Drive', icon:'hardDrive', order:8, visible:true, construction:true,
       name:{ pt:'Usuários Externos', en:'External Users' },
       desc:{ pt:'Pasta compartilhada para usuários externos.', en:'Shared folder for external users.' },
       url:'' },
-    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:7, visible:true, construction:false,
+    { id:'conv', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:9, visible:true, construction:false,
       name:{ pt:'Conversões', en:'Conversions' },
       desc:{ pt:'Ferramenta de conversão de unidades e medidas.', en:'Unit and measurement conversion tool.' },
       url:'https://b24-hwufd8.bitrix24.site/emptytemplate_zmpa/' },
-    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:8, visible:true, construction:false,
+    { id:'etiq', category:'Ferramentas', categoryEn:'Tools', icon:'tool', order:10, visible:true, construction:false,
       name:{ pt:'Gerador de Etiquetas', en:'Label Generator' },
       desc:{ pt:'Ferramenta para geração de etiquetas de produtos.', en:'Tool for generating product labels.' },
       url:'http://192.0.1.11:8501/' }
@@ -430,7 +476,7 @@ var linksData   = [];
 // Migração: renomeia "Departamento Comercial" -> "Comercial" e posiciona
 // o bloco Comercial logo depois de Formulários (roda uma única vez).
 var MIGRATION_KEY = 'wendellLinksMigration';
-var MIGRATION_VERSION = '2';
+var MIGRATION_VERSION = '3';
 
 function migrarDados() {
     var mudou = false;
@@ -455,6 +501,20 @@ function migrarDados() {
         linksData.slice().sort(function(a, b) { return a.order - b.order; })
                  .forEach(function(c, idx) { c.order = idx + 1; });
     }
+
+    // v3: Lista de Custos e Relatórios logo abaixo do último card Comercial
+    ['com-custos', 'com-relatorios'].forEach(function(id) {
+        if (getById(id)) return;
+        var novo = JSON.parse(JSON.stringify(DEFAULT_DATA.filter(function(c){ return c.id === id; })[0]));
+        var ref = null;
+        linksData.forEach(function(c) { if (c.category === 'Comercial' && (ref === null || c.order > ref)) ref = c.order; });
+        if (ref === null) ref = linksData.reduce(function(m, c){ return Math.max(m, c.order); }, 0);
+        novo.order = ref + 0.5;
+        linksData.push(novo);
+        linksData.slice().sort(function(a, b) { return a.order - b.order; })
+                 .forEach(function(c, idx) { c.order = idx + 1; });
+        mudou = true;
+    });
 
     if (mudou) saveData();
     try { localStorage.setItem(MIGRATION_KEY, MIGRATION_VERSION); } catch (e) {}
@@ -504,7 +564,13 @@ var ICONS = {
     edit2: '<path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>',
     trash2: '<polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>',
     x: '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>',
-    plus: '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>'
+    plus: '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>',
+    clipboardList: '<rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path>',
+    folder: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
+    copy: '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>',
+    check: '<polyline points="20 6 9 17 4 12"></polyline>',
+    chat: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><line x1="8.5" y1="10" x2="15.5" y2="10"></line><line x1="8.5" y1="13.5" x2="13" y2="13.5"></line>'
 };
 var ICON_CHOICES = [
     { key:'clipboard', label:'Formulário' },
@@ -516,23 +582,28 @@ var ICON_CHOICES = [
     { key:'settings', label:'Configuração' },
     { key:'star', label:'Destaque' }
 ];
+var CAT_ICONS = { 'formulários':'clipboardList', 'formularios':'clipboardList', 'forms':'clipboardList',
+    'comercial':'briefcase', 'commercial':'briefcase', 'drive':'folder', 'ferramentas':'wrench', 'tools':'wrench' };
+function iconeCategoria(catName, fallback) {
+    return CAT_ICONS[String(catName || '').trim().toLowerCase()] || fallback || 'link';
+}
 function icon(name, size) {
     var s = size || 15;
     var body = ICONS[name] || ICONS.link;
-    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;flex-shrink:0">' + body + '</svg>';
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;flex-shrink:0">' + body + '</svg>';
 }
 
 // -- TRADUÇÕES DE INTERFACE --
 var t = {
     pt: {
         title: 'WENDELL LINKS', sub: 'Wendell Global Interlining - Central de Links',
-        open: 'Abrir', share: 'Compartilhar', construction: 'Em construção',
-        share_title: 'Compartilhar', btn_copy: 'Copiar texto', btn_pdf: 'Gerar PDF completo', copied: 'Copiado!'
+        open: 'Abrir', share: 'Compartilhar link', construction: 'Em construção',
+        share_title: 'Compartilhar', btn_copy: 'Copiar link', btn_wa: 'Compartilhar', btn_pdf: 'Gerar PDF completo', copied: 'Link copiado!'
     },
     en: {
         title: 'WENDELL LINKS', sub: 'Wendell Global Interlining - Link Directory',
-        open: 'Open', share: 'Share', construction: 'Under construction',
-        share_title: 'Share', btn_copy: 'Copy text', btn_pdf: 'Download full PDF', copied: 'Copied!'
+        open: 'Open', share: 'Share link', construction: 'Under construction',
+        share_title: 'Share', btn_copy: 'Copy link', btn_wa: 'Share', btn_pdf: 'Download full PDF', copied: 'Link copied!'
     }
 };
 
@@ -577,24 +648,22 @@ function renderCards() {
 
         var catLabel = currentLang === 'pt' ? catName : (items[0].categoryEn || catName);
 
-        var html = '<div class="cat-header"><span class="cat-icon">' + icon(items[0].icon || 'link', 16) + '</span>' +
+        var html = '<div class="cat-header"><span class="cat-icon">' + icon(iconeCategoria(catName, items[0].icon), 16) + '</span>' +
                     '<span class="cat-title">' + escapeHtml(catLabel) + '</span></div>';
 
         items.forEach(function(item) {
             var info = item.name[currentLang] || item.name.pt;
             if (item.construction) {
-                html += '<div class="card"><div class="card-info">' +
-                        '<div class="card-name">' + escapeHtml(info) + '</div>' +
-                        '<div class="card-link-row">' +
-                        '<span class="card-url-btn construction">' + icon('alertTriangle', 13) + ' ' + tx.construction + '</span>' +
-                        '</div></div></div>';
+                html += '<div class="card"><div class="card-link-row">' +
+                        '<span class="card-title-btn construction" aria-disabled="true"><span>' + escapeHtml(info) + '</span>' +
+                        '<em class="tag-obra">' + tx.construction + '</em></span>' +
+                        '</div></div>';
             } else {
-                html += '<div class="card"><div class="card-info">' +
-                        '<div class="card-name">' + escapeHtml(info) + '</div>' +
-                        '<div class="card-link-row">' +
-                        '<a href="' + item.url + '" target="_blank" class="card-url-btn" title="' + escapeHtml(tx.open) + '">' + escapeHtml(item.url) + '</a>' +
-                        '<button class="btn-share" onclick="abrirModal(\'' + item.id + '\')">' + icon('share2', 13) + ' ' + tx.share + '</button>' +
-                        '</div></div></div>';
+                html += '<div class="card"><div class="card-link-row">' +
+                        '<a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener" class="card-title-btn" title="' + escapeHtml(tx.open + ': ' + item.url) + '">' +
+                        '<span>' + escapeHtml(info) + '</span>' + icon('externalLink', 14) + '</a>' +
+                        '<button class="btn-share" onclick="abrirModal(\'' + item.id + '\')" aria-label="' + escapeHtml(tx.share) + '">' + icon('share2', 13) + ' <span class="lbl-long">' + tx.share + '</span></button>' +
+                        '</div></div>';
             }
         });
 
@@ -623,32 +692,40 @@ function abrirModal(id) {
 
     var preview = '*' + info + '*\n' + 'Wendell Global Interlining\n\n' + (desc || '') + '\n\n' + item.url;
     document.getElementById('modalPreview').textContent = preview;
+    pintarBotoesModal(false);
+    document.getElementById('btnWa').href = 'https://wa.me/?text=' + encodeURIComponent(preview);
 
     document.getElementById('modalShare').classList.add('active');
 }
 
 function fecharModal() {
     document.getElementById('modalShare').classList.remove('active');
-    var btnCopy = document.getElementById('btnCopy');
-    btnCopy.textContent = t[currentLang].btn_copy;
-    btnCopy.classList.remove('copied');
+    pintarBotoesModal(false);
+}
+
+function pintarBotoesModal(copiado) {
+    var tx = t[currentLang];
+    var b = document.getElementById('btnCopy');
+    b.innerHTML = icon(copiado ? 'check' : 'copy', 17) + '<span>' + (copiado ? tx.copied : tx.btn_copy) + '</span>';
+    b.classList.toggle('copied', !!copiado);
+    document.getElementById('btnWa').innerHTML = icon('chat', 17) + '<span>' + tx.btn_wa + '</span>';
 }
 
 function copiarTexto() {
-    var txt = document.getElementById('modalPreview').textContent;
-    navigator.clipboard.writeText(txt).then(function() {
-        var btn = document.getElementById('btnCopy');
-        btn.textContent = t[currentLang].copied;
-        btn.classList.add('copied');
-        setTimeout(function(){ btn.textContent = t[currentLang].btn_copy; btn.classList.remove('copied'); }, 2000);
-    }).catch(function() {
+    var item = getById(currentKey);
+    var txt = item ? item.url : '';
+    function ok() {
+        pintarBotoesModal(true);
+        setTimeout(function(){ pintarBotoesModal(false); }, 2000);
+    }
+    navigator.clipboard.writeText(txt).then(ok).catch(function() {
         var ta = document.createElement('textarea');
         ta.value = txt;
         document.body.appendChild(ta);
         ta.select();
-        document.execCommand('copy');
+        try { document.execCommand('copy'); } catch (e) {}
         document.body.removeChild(ta);
-        document.getElementById('btnCopy').textContent = t[currentLang].copied;
+        ok();
     });
 }
 
